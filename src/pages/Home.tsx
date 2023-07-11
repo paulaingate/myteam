@@ -3,16 +3,16 @@ import homeImg2 from '../assets/bg-pattern-home-2.svg'
 import homeImg3 from '../assets/bg-pattern-home-3.svg'
 import homeImg4 from '../assets/bg-pattern-home-4-about-3.svg'
 import homeImg5 from '../assets/bg-pattern-home-5.svg'
-import homeImg6 from '../assets/bg-pattern-home-6-about-5.svg'
 import personIcon from '../assets/icon-person.svg'
 import cogIcon from '../assets/icon-cog.svg'
 import chartIcon from '../assets/icon-chart.svg'
-import { Link } from 'react-router-dom'
 import Quote from '../components/Quote'
+import GetStarted from '../components/GetStarted'
+
 
 export default function Home() {
   return (
-    <div className='home'>
+    <div>
         <section className='home-section-1'>
             <img className='home-img-1' src={homeImg1} />
             <div className='section-content'>
@@ -85,13 +85,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className='home-section-4'>
-            <div className="section-content">
-                <img className='home-img-6' src={homeImg6} />
-                <h2>Ready to get started?</h2>
-                <Link className='header-contact-btn' to='/contact'><button className='btn-dark'>contact us</button></Link>
-            </div>
-        </section>
+        <GetStarted />
     </div>
   )
 }
