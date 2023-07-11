@@ -622,11 +622,49 @@ form.submit-attempted {
 @media (max-width: 767px) {
     nav {
         display: none;
+        position: relative;
+        padding: 3em 3.5em;
+    }
+
+    .menu-close-btn {
+        align-self: end;
+        margin-bottom: 1em;
     }
     
     nav.open {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1.5em;
+        position: fixed;
+        top: 0;
+        right: 0;
+        min-height: 100vh;
+        background-color: $dark-blue;
+        z-index: 2; 
+
+        button {
+            margin-top: 0.75em;
+        }
     }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 1;
+    }
+
+    .menu-img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        translate: 50% 0;
+    }
+
 }
 
 //Mobile and tablet
@@ -765,11 +803,19 @@ form.submit-attempted {
         display: none;
     }
 
+    .menu-img {
+        display: none;
+    }
+
     nav {
         display: flex;
         flex-grow: 1;
         gap: 2.5em;
         align-items: center;
+    }
+
+    .menu-close-btn {
+        display: none;
     }
 
     .header-contact-btn {
