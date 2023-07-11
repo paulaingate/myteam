@@ -18,6 +18,16 @@ body {
     text-align: center;
 }
 
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main {
+        flex-grow: 1;
+    }
+}
+
 header,
 section,
 footer {
@@ -60,6 +70,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: $pink; 
+}
+
 p.job-title {
     text-align: center;
     font-style: italic;
@@ -88,7 +102,10 @@ header a {
 =============*/
 a, 
 button,
-.menu-btn {
+.menu-btn,
+.social-media img,
+.director-social-media img,
+.director-card-btn {
     cursor: pointer;
 }
 
@@ -151,7 +168,7 @@ header {
 }
 
 /*==========
-    Header
+    Footer
 ============*/
 
 footer {
@@ -190,6 +207,11 @@ footer {
 
 .social-media {
     gap: 1em;
+}
+
+.social-media img:hover,
+.director-social-media img:hover {
+    filter: brightness(0) saturate(100%) invert(47%) sepia(37%) saturate(570%) hue-rotate(314deg) brightness(118%) contrast(103%);
 }
 
 
@@ -363,6 +385,7 @@ footer {
 
 .director-card-btn {
     position: absolute;
+    background-color: $light-blue;
     bottom: 0;
     left: 50%;
     translate: -50% 50%;
@@ -375,6 +398,19 @@ footer {
         filter: brightness(0) saturate(100%) invert(13%) sepia(61%) saturate(743%) hue-rotate(139deg) brightness(97%) contrast(99%);
     }
 }
+
+.director-card-btn.director-card-front {
+    background-color: $pink;
+}
+
+.director-card-btn:hover {
+    background-color: $pink;
+}
+
+.director-card-btn.director-card-front:hover {
+    background-color: $light-blue; 
+}
+
 
 .director-social-media {
     display: flex;
@@ -396,7 +432,106 @@ footer {
     }
 }
 
-//images
+/*=========
+   Contact
+   ===========*/
+   
+.contact-section {
+    padding-bottom: 88px;
+    margin-top: 80px;
+    
+    .section-content {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    h2 {
+        margin: 0.5em 0 1.25em 0;
+    }
+
+    p {
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+}
+
+.contact-ask {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 72px auto;
+    grid-template-rows: repeat(3, 72px);
+    gap: 1.5em;
+    text-align: start;
+}
+
+form {
+    margin-top: 3.5em;
+
+    input, textarea {
+        font-family: inherit;
+        color: white;
+        font-size: 0.9375em;
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        padding: 1.6em 1em 1.13em;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        opacity: 0.6;
+        color: white;
+    }
+
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+        border-color: $light-blue;
+    }
+
+    .input-required {
+        display: none;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    button {
+        float: left;
+        margin-top: 1.5em;
+    }
+}
+
+form.submit-attempted {
+    input:invalid {
+        border-color: $pink;
+    }
+    input:invalid::placeholder {
+        color: $pink;
+    }
+
+    .input-required {
+        display: block;
+        color: $pink;
+        font-style: italic;
+        font-size: 0.8125em;
+        text-align: start;
+        height: 1em;
+        padding: 0.62em 0 0 1.846em; 
+    }
+}
+
+/*=========
+   Images
+===========*/
 .home-img-1,
 .home-img-2,
 .home-img-3,
@@ -406,7 +541,9 @@ footer {
 .about-img-1,
 .about-img-2,
 .about-img-3,
-.about-img-4 {
+.about-img-4,
+.contact-img-1,
+.contact-img-2 {
     position: absolute;
     display: block;
 }
@@ -460,6 +597,16 @@ footer {
 .about-img-3 {
     bottom: 0;
     right: 0;
+}
+
+.contact-img-1 {
+    display: none;
+}
+
+.contact-img-2 {
+    bottom: 0;
+    right: 0;
+    translate: 50% 50%;
 }
 
 .avatar {
@@ -588,6 +735,20 @@ footer {
         translate: 0 -50%;
     }
 
+    .contact-section {
+        padding-bottom: 112px;
+        margin-top: 112px;
+
+        .section-content {
+            max-width: 768px;
+        }
+
+        h2 {
+            margin: 0.75em 0;
+        }
+
+    }
+
     footer {
         padding: 3.5em 2.4375em;
     }
@@ -666,6 +827,16 @@ footer {
         grid-template-columns: 1fr 1fr;
         column-gap: 11px;
         row-gap: 76px;
+    }
+    .contact-img-1 {
+        display: block;
+        top: 0;
+        left: 0;
+        translate: -50% 0;
+    }
+
+    .contact-img-2 {
+        translate: 55% 0;
     }
 
     .footer-content {
@@ -761,6 +932,7 @@ footer {
 
     header {
         box-sizing: initial;
+        width: 1110px;
         gap: 5em;
         padding: 4.8125em 10.3125em 0 10.3125em;
     }
@@ -884,7 +1056,29 @@ footer {
     .about-img-4 {
         translate: 0 0;
     }
+    /*===========
+        Contact
+    =============*/
+    .contact-section {
+        padding-bottom: 120px;
+        margin-top: 128px;
 
+        .section-content {
+            display: flex;
+            width: 100%;
+            max-width: 1110px;
+            gap: 120px;
+        }
+    }
+
+    form {
+        flex-grow: 1;
+    }
+    
+    
+    /*========
+        Footer
+    ==========*/
     .footer-content {
         grid-template-columns: 274px 1fr 1fr;
         grid-template-rows: 50px 50px;

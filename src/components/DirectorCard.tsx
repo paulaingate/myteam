@@ -14,9 +14,9 @@ type DirectorCardProps = {
 export default function DirectorCard({imgUrl, name, jobTitle, quote} : DirectorCardProps) {
     const [showFront, setShowFront] = useState(true)
 
-    const btnStyle = {
-        backgroundColor: showFront ? '#F67E7E' : '#79C8C7'
-    }
+    // const btnStyle = {
+    //     backgroundColor: showFront ? '#F67E7E' : '#79C8C7'
+    // }
 
     const cardStyle = {
         backgroundColor: showFront ? '#012F34' : '#002529'
@@ -39,7 +39,7 @@ export default function DirectorCard({imgUrl, name, jobTitle, quote} : DirectorC
                     <img src={linkedinLogo} alt="linkedin logo" />
                 </div>
             </>}
-        <div className='director-card-btn' onClick={toggle} style={btnStyle}>
+        <div className={`director-card-btn ${showFront && 'director-card-front'}`} onClick={toggle}>
             <img src={showFront ? crossIcon : closeIcon}  />
         </div>
     </div>

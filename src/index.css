@@ -10,6 +10,15 @@ body {
   text-align: center;
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layout main {
+  flex-grow: 1;
+}
+
 header,
 section,
 footer {
@@ -51,6 +60,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #F67E7E;
+}
+
 p.job-title {
   text-align: center;
   font-style: italic;
@@ -79,7 +92,10 @@ header a {
 =============*/
 a,
 button,
-.menu-btn {
+.menu-btn,
+.social-media img,
+.director-social-media img,
+.director-card-btn {
   cursor: pointer;
 }
 
@@ -143,7 +159,7 @@ header {
 }
 
 /*==========
-    Header
+    Footer
 ============*/
 footer {
   padding-top: 66px;
@@ -177,6 +193,11 @@ footer p:last-of-type {
 
 .social-media {
   gap: 1em;
+}
+
+.social-media img:hover,
+.director-social-media img:hover {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(37%) saturate(570%) hue-rotate(314deg) brightness(118%) contrast(103%);
 }
 
 /*========
@@ -329,6 +350,7 @@ footer p:last-of-type {
 
 .director-card-btn {
   position: absolute;
+  background-color: #79C8C7;
   bottom: 0;
   left: 50%;
   translate: -50% 50%;
@@ -339,6 +361,18 @@ footer p:last-of-type {
 }
 .director-card-btn img {
   filter: brightness(0) saturate(100%) invert(13%) sepia(61%) saturate(743%) hue-rotate(139deg) brightness(97%) contrast(99%);
+}
+
+.director-card-btn.director-card-front {
+  background-color: #F67E7E;
+}
+
+.director-card-btn:hover {
+  background-color: #F67E7E;
+}
+
+.director-card-btn.director-card-front:hover {
+  background-color: #79C8C7;
 }
 
 .director-social-media {
@@ -360,6 +394,98 @@ footer p:last-of-type {
   max-height: 39px;
 }
 
+/*=========
+   Contact
+   ===========*/
+.contact-section {
+  padding-bottom: 88px;
+  margin-top: 80px;
+}
+.contact-section .section-content {
+  max-width: 400px;
+  margin: auto;
+}
+.contact-section h1 {
+  margin: 0;
+}
+.contact-section h2 {
+  margin: 0.5em 0 1.25em 0;
+}
+.contact-section p {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.contact-ask {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 72px auto;
+  grid-template-rows: repeat(3, 72px);
+  gap: 1.5em;
+  text-align: start;
+}
+
+form {
+  margin-top: 3.5em;
+}
+form input, form textarea {
+  font-family: inherit;
+  color: white;
+  font-size: 0.9375em;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 1.6em 1em 1.13em;
+}
+form input::-moz-placeholder, form textarea::-moz-placeholder {
+  opacity: 0.6;
+  color: white;
+}
+form input::placeholder,
+form textarea::placeholder {
+  opacity: 0.6;
+  color: white;
+}
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #79C8C7;
+}
+form .input-required {
+  display: none;
+}
+form textarea {
+  resize: none;
+}
+form button {
+  float: left;
+  margin-top: 1.5em;
+}
+
+form.submit-attempted input:invalid {
+  border-color: #F67E7E;
+}
+form.submit-attempted input:invalid::-moz-placeholder {
+  color: #F67E7E;
+}
+form.submit-attempted input:invalid::placeholder {
+  color: #F67E7E;
+}
+form.submit-attempted .input-required {
+  display: block;
+  color: #F67E7E;
+  font-style: italic;
+  font-size: 0.8125em;
+  text-align: start;
+  height: 1em;
+  padding: 0.62em 0 0 1.846em;
+}
+
+/*=========
+   Images
+===========*/
 .home-img-1,
 .home-img-2,
 .home-img-3,
@@ -369,7 +495,9 @@ footer p:last-of-type {
 .about-img-1,
 .about-img-2,
 .about-img-3,
-.about-img-4 {
+.about-img-4,
+.contact-img-1,
+.contact-img-2 {
   position: absolute;
   display: block;
 }
@@ -423,6 +551,16 @@ footer p:last-of-type {
 .about-img-3 {
   bottom: 0;
   right: 0;
+}
+
+.contact-img-1 {
+  display: none;
+}
+
+.contact-img-2 {
+  bottom: 0;
+  right: 0;
+  translate: 50% 50%;
 }
 
 .avatar {
@@ -524,6 +662,16 @@ footer p:last-of-type {
   .about-img-4 {
     translate: 0 -50%;
   }
+  .contact-section {
+    padding-bottom: 112px;
+    margin-top: 112px;
+  }
+  .contact-section .section-content {
+    max-width: 768px;
+  }
+  .contact-section h2 {
+    margin: 0.75em 0;
+  }
   footer {
     padding: 3.5em 2.4375em;
   }
@@ -590,6 +738,15 @@ footer p:last-of-type {
     -moz-column-gap: 11px;
          column-gap: 11px;
     row-gap: 76px;
+  }
+  .contact-img-1 {
+    display: block;
+    top: 0;
+    left: 0;
+    translate: -50% 0;
+  }
+  .contact-img-2 {
+    translate: 55% 0;
   }
   .footer-content {
     max-width: 1200px;
@@ -663,6 +820,7 @@ footer p:last-of-type {
   ==========*/
   header {
     box-sizing: initial;
+    width: 1110px;
     gap: 5em;
     padding: 4.8125em 10.3125em 0 10.3125em;
   }
@@ -766,6 +924,25 @@ footer p:last-of-type {
   .about-img-4 {
     translate: 0 0;
   }
+  /*===========
+      Contact
+  =============*/
+  .contact-section {
+    padding-bottom: 120px;
+    margin-top: 128px;
+  }
+  .contact-section .section-content {
+    display: flex;
+    width: 100%;
+    max-width: 1110px;
+    gap: 120px;
+  }
+  form {
+    flex-grow: 1;
+  }
+  /*========
+      Footer
+  ==========*/
   .footer-content {
     grid-template-columns: 274px 1fr 1fr;
     grid-template-rows: 50px 50px;
